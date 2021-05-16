@@ -1,4 +1,4 @@
-FROM tiryoh/ros2-desktop-vnc:foxy-arm64
+FROM tiryoh/ros2-desktop-vnc:foxy
 LABEL maintainer="Taiga MITSUYUKI<mitsuyuki-taiga-my@ynu.ac.jp>"
 
 ENV DISTRO foxy

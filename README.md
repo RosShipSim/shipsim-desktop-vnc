@@ -4,10 +4,18 @@ This repository is for checking shipsim platform in Docker container.
 
 ## Build
 
-- foxy-arm64 for supporting Apple Silicon
+### foxy
 
 ```sh
-docker build -t taiga4112/shipsim-vnc:foxy-arm64 --build-arg CACHEBUST=$(date +%s) foxy-arm64/.
+docker build -t taiga4112/shipsim-vnc:foxy-arm64 foxy-arm64/.
+# docker build -t taiga4112/shipsim-vnc:foxy --build-arg CACHEBUST=$(date +%s) foxy/.
+```
+
+### foxy-arm64 for supporting Apple Silicon
+
+```sh
+docker build -t taiga4112/shipsim-vnc:foxy-arm64 foxy-arm64/.
+# docker build -t taiga4112/shipsim-vnc:foxy-arm64 --build-arg CACHEBUST=$(date +%s) foxy-arm64/.
 ```
 
 ## Run
@@ -18,7 +26,7 @@ docker build -t taiga4112/shipsim-vnc:foxy-arm64 --build-arg CACHEBUST=$(date +%
   - Change the `shm-size` value depending on the situation.
 
   ```sh
-  docker run -p 6080:80 --shm-size=512m taiga4112/shipsim-vnc:foxy-arm64
+  docker run -p 6080:80 --shm-size=512m taiga4112/shipsim-vnc:foxy
   ```
 
 - Access [localhost:6080](http://127.0.0.1:6080/)
@@ -36,4 +44,11 @@ cd shipsim_ws
 
 ```sh
 ros2 run shipsim shipsim_node
+```
+
+- Open a new terminal and run [shipsim_controller-ui](https://github.com/ShipMMG/shipsim_controller-ui) after running a shipsim node
+
+```sh
+cd ~/shipsim_ws
+python shipsim_controller-ui/main.py
 ```
