@@ -36,19 +36,24 @@ docker build -t taiga4112/shipsim-vnc:foxy-arm64 foxy-arm64/.
 - Open a terminal and install all packages built by colcon.
 
 ```sh
-cd shipsim_ws
+cd ~/shipsim_ws
 . install/setup.bash
-```
-
-- Run a shipsim node
-
-```sh
 ros2 run shipsim shipsim_node
 ```
 
-- Open a new terminal and run [shipsim_controller-ui](https://github.com/ShipMMG/shipsim_controller-ui) after running a shipsim node
+- Open a new terminal and run model node of [shipsim_control_module](https://github.com/ShipMMG/shipsim_control_module) after running a shipsim node
 
 ```sh
 cd ~/shipsim_ws
-python shipsim_controller-ui/main.py
+. install/setup.bash
+ros2 run shipsim_control_module model_node
 ```
+
+- Open a new terminal and run controller node of [shipsim_control_module](https://github.com/ShipMMG/shipsim_control_module) after running a shipsim node
+
+```sh
+cd ~/shipsim_ws
+. install/setup.bash
+ros2 run shipsim_control_module controller_node
+```
+

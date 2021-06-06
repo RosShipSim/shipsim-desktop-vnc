@@ -15,10 +15,11 @@ ARG CACHEBUST=1
 # set shipsim
 RUN git clone --depth 1 https://github.com/ShipMMG/shipsim.git
 
+# set package except for the targets of colcon build
+# set shipsim_controller-ui
+RUN git clone --depth 1 https://github.com/ShipMMG/shipsim_control_msgs.git
+RUN git clone --depth 1 https://github.com/ShipMMG/shipsim_control_module.git
+
 # build
 WORKDIR /home/${USER}/${WORKDIR}/
 RUN . /opt/ros/${DISTRO}/setup.sh && colcon build
-
-# set package except for the targets of colcon build
-# set shipsim_controller-ui
-RUN git clone --depth 1 https://github.com/ShipMMG/shipsim_controller-ui.git
