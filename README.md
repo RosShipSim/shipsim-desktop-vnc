@@ -7,7 +7,7 @@ This repository is for checking shipsim platform in Docker container.
 ### foxy
 
 ```sh
-docker build -t taiga4112/shipsim-vnc:foxy-arm64 foxy-arm64/.
+docker build -t taiga4112/shipsim-vnc:foxy-arm64 foxy/.
 # docker build -t taiga4112/shipsim-vnc:foxy --build-arg CACHEBUST=$(date +%s) foxy/.
 ```
 
@@ -33,7 +33,7 @@ docker build -t taiga4112/shipsim-vnc:foxy-arm64 foxy-arm64/.
 
 ### 2. Run shipsim in VNC
 
-- Open a terminal and install all packages built by colcon.
+- Open a terminal and run shipsim view.
 
 ```sh
 cd ~/shipsim_ws
@@ -41,19 +41,34 @@ cd ~/shipsim_ws
 ros2 run shipsim shipsim_node
 ```
 
-- Open a new terminal and run model node of [shipsim_control_module](https://github.com/ShipMMG/shipsim_control_module) after running a shipsim node
+- Open a new terminal and run model node after running a shipsim node
 
 ```sh
 cd ~/shipsim_ws
 . install/setup.bash
-ros2 run shipsim_control_module model_node
+ros2 run shipsim_kt_module model_node
 ```
 
-- Open a new terminal and run controller node of [shipsim_control_module](https://github.com/ShipMMG/shipsim_control_module) after running a shipsim node
+- Open a new terminal and run controller node after running a shipsim node
 
 ```sh
 cd ~/shipsim_ws
 . install/setup.bash
-ros2 run shipsim_control_module controller_node
+ros2 run shipsim_kt_module controller_node
 ```
 
+- Open a new terminal and run sensor node after running a shipsim node
+
+```sh
+cd ~/shipsim_ws
+. install/setup.bash
+ros2 run shipsim_sensor_module simulated_sensor_node
+```
+
+- Open a new terminal and run actuator node after running a shipsim node
+
+```sh
+cd ~/shipsim_ws
+. install/setup.bash
+ros2 run shipsim_actuator_module simulated_actuator_node
+```

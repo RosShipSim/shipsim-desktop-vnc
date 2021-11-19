@@ -12,13 +12,20 @@ WORKDIR /home/${USER}/${WORKDIR}/src
 # inital set for no cache
 ARG CACHEBUST=1
 
-# set shipsim
-RUN git clone --depth 1 https://github.com/ShipMMG/shipsim.git
+# set shipsim packages
+RUN git clone --depth 1 https://github.com/ShipMMG/shipsim_view.git
+RUN git clone --depth 1 https://github.com/ShipMMG/shipsim_kt_module.git
+RUN git clone --depth 1 https://github.com/ShipMMG/shipsim_msgs_module.git
+RUN git clone --depth 1 https://github.com/ShipMMG/shipsim_sensor_module.git
+RUN git clone --depth 1 https://github.com/ShipMMG/shipsim_actuator_module.git
 
-# set package except for the targets of colcon build
-# set shipsim_controller-ui
-RUN git clone --depth 1 https://github.com/ShipMMG/shipsim_control_msgs.git
-RUN git clone --depth 1 https://github.com/ShipMMG/shipsim_control_module.git
+# python library for running shipsim
+RUN curl http://repo.ros2.org/repos.key | sudo apt-key add -
+RUN apt-get update -q && \
+    apt-get upgrade -yq && \
+    apt-get install -yq python3-dev python3-pip python3-venv && \
+    rm -rf /var/lib/apt/lists/*
+RUN pip install pandas
 
 # build
 WORKDIR /home/${USER}/${WORKDIR}/
