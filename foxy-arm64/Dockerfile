@@ -15,6 +15,7 @@ ARG CACHEBUST=1
 # set shipsim packages
 RUN git clone --depth 1 https://github.com/ShipMMG/shipsim_view.git
 RUN git clone --depth 1 https://github.com/ShipMMG/shipsim_kt_module.git
+RUN git clone --depth 1 https://github.com/ShipMMG/shipsim_mmg_module.git
 RUN git clone --depth 1 https://github.com/ShipMMG/shipsim_msgs_module.git
 RUN git clone --depth 1 https://github.com/ShipMMG/shipsim_sensor_module.git
 RUN git clone --depth 1 https://github.com/ShipMMG/shipsim_actuator_module.git

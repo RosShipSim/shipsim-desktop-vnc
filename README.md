@@ -7,7 +7,7 @@ This repository is for checking shipsim platform in Docker container.
 ### foxy
 
 ```sh
-docker build -t taiga4112/shipsim-vnc:foxy-arm64 foxy/.
+docker build -t taiga4112/shipsim-vnc:foxy foxy/.
 # docker build -t taiga4112/shipsim-vnc:foxy --build-arg CACHEBUST=$(date +%s) foxy/.
 ```
 
