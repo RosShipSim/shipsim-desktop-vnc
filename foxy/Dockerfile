@@ -19,6 +19,8 @@ RUN git clone --depth 1 https://github.com/ShipMMG/shipsim_mmg_module.git
 RUN git clone --depth 1 https://github.com/ShipMMG/shipsim_msgs_module.git
 RUN git clone --depth 1 https://github.com/ShipMMG/shipsim_sensor_module.git
 RUN git clone --depth 1 https://github.com/ShipMMG/shipsim_actuator_module.git
+RUN git clone --depth 1 https://github.com/ShipMMG/shipsim_z_test.git
+RUN git clone --depth 1 https://github.com/ShipMMG/shipsim_disturbance_module.git
 
 # python library for running shipsim
 RUN curl http://repo.ros2.org/repos.key | sudo apt-key add -
