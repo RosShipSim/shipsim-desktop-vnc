@@ -76,7 +76,7 @@ ros2 run shipsim_kt_module controller_node
 ```sh
 cd ~/shipsim_ws
 . install/setup.bash
-ros2 run shipsim_sensor_module simulated_sensor_node
+ros2 run shipsim_sensor_module simulated_kt_sensor_node
 ```
 
 - Open a new terminal and run actuator node after running a shipsim node
@@ -84,5 +84,5 @@ ros2 run shipsim_sensor_module simulated_sensor_node
 ```sh
 cd ~/shipsim_ws
 . install/setup.bash
-ros2 run shipsim_actuator_module simulated_actuator_node
+ros2 run shipsim_actuator_module simulated_kt_actuator_node
 ```
