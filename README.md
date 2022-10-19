@@ -4,6 +4,20 @@ This repository is for checking shipsim platform in Docker container.
 
 ## Build
 
+### humble
+
+```sh
+docker build -t taiga4112/shipsim-vnc:humble humble/.
+# docker build -t taiga4112/shipsim-vnc:humble --build-arg CACHEBUST=$(date +%s) humble/.
+```
+
+### humble-arm64 for supporting Apple Silicon
+
+```sh
+docker build -t taiga4112/shipsim-vnc:humble humble-arm64/.
+# docker build -t taiga4112/shipsim-vnc:humble-arm64 --build-arg CACHEBUST=$(date +%s) humble-arm64/.
+```
+
 ### foxy
 
 ```sh
@@ -26,7 +40,7 @@ docker build -t taiga4112/shipsim-vnc:foxy-arm64 foxy-arm64/.
   - Change the `shm-size` value depending on the situation.
 
   ```sh
-  docker run -p 6080:80 --shm-size=512m taiga4112/shipsim-vnc:foxy
+  docker run -p 6080:80 --shm-size=512m taiga4112/shipsim-vnc:humble
   ```
 
 - Access [localhost:6080](http://127.0.0.1:6080/)
